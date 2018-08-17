@@ -21,18 +21,15 @@ function createWindow(){
 
 function deployCodeToBot(){
 
-    setProgressBar("1")
+    startLoading()
+
     var tankDriveImports = "#!/usr/bin/env python3\nfrom ev3dev2.motor import OUTPUT_A, OUTPUT_B, OUTPUT_C, OUTPUT_D, SpeedPercent, MoveTank\n"
 
     var compiledCode = Blockly.Python.workspaceToCode(workspace)
 
-    setProgressBar("25")
-
     var hostName = getHostName()
 
     var fileName = getFileName()
-
-    setProgressBar("50")
 
 
     ssh.connect({
@@ -40,10 +37,9 @@ function deployCodeToBot(){
         username: "robot",
         password: "maker"
     }).then(function() {
-        setProgressBar("75")
         ssh.exec("echo " + "'" + tankDriveImports + compiledCode + "' > " + fileName)
         ssh.exec("chmod +x " + fileName)
-        setProgressBar("100")
+        stopLoading()
     })
 }
 
