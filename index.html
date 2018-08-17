@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="blockly/blockly_compressed.js"></script>
+        <script src="blockly/python_compressed.js"></script>
+        <script src="blockly/blocks_compressed.js"></script>
+        <script src="blockly/generators/python/ev3.js"></script>
+        <script src="blockly/blocks/ev3.js"></script>
+        <script src="blockly/msg/js/en.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <input type="text" id="hostip" placeholder="brick ip"><br>
+        <input type="text" id="pname" placeholder="program name"><br>
+        <input type="button" id="btnEd" value="Deploy Code" onclick="deployCodeToBot()" />
+        <progress id="progressBar" value="0" max="100"></progress>
+        <div id="blocklyDiv" style="height: 650px; width: 1280px;"></div>
+        <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
+            <block type="tank_drive">
+              <field name="left_output">OUTPUT_B</field>
+              <field name="right_output">OUTPUT_C</field>
+            </block>
+            <block type="drive_for_seconds">
+              <value name="left_percent">
+                <block type="math_number">
+                  <field name="NUM">50</field>
+                </block>
+              </value>
+              <value name="right_percent">
+                <block type="math_number">
+                  <field name="NUM">50</field>
+                </block>
+              </value>
+              <value name="seconds">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+            </block>
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+        </xml>
+    </body>
+    <script>
+        var workspace = Blockly.inject('blocklyDiv',
+            {toolbox: document.getElementById('toolbox'),
+                zoom:
+                    {controls: true,
+                    wheel: true,
+                    startScale: 1.0,
+                    maxScale: 3,
+                    minScale: 0.3,
+                    scaleSpeed: 1.2},
+                trashcan: true});
+
+
+        function getHostName(){
+            return document.getElementById('hostip').value;
+        }
+        function getFileName(){
+            return document.getElementById('pname').value;
+        }
+        function setProgressBar(value){
+            document.getElementById("progressBar").value = value;
+        }
+    </script>
+</html>

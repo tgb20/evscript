@@ -1,0 +1,15 @@
+{
+  "name": "evscript",
+  "version": "1.0.0",
+  "description": "A Block Based Client for EV3",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Jacob Bashista",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^2.0.7",
+    "node-ssh": "^5.1.2"
+  }
+}
