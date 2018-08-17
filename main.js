@@ -9,8 +9,6 @@ ssh = new node_ssh()
 function createWindow(){
     win = new BrowserWindow({width: 1280, height: 720})
 
-    win.setResizable(false)
-
     win.loadFile('index.html');
 
     //win.webContents.openDevTools()

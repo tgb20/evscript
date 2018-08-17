@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="mdl/material.min.css">
+        <link rel="stylesheet" href="index.css">
+        <script src="mdl/material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="mdl/material.min.js"></script>
         <script src="blockly/blockly_compressed.js"></script>
         <script src="blockly/python_compressed.js"></script>
         <script src="blockly/blocks_compressed.js"></script>
@@ -10,11 +15,35 @@
         <script src="main.js"></script>
     </head>
     <body>
+            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+                    <header class="mdl-layout__header">
+                      <div class="mdl-layout__header-row">
+                        <!-- Title -->
+                        <span class="mdl-layout-title">evScript</span>
+                      </div>
+                      <!-- Tabs -->
+                      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                        <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Editor</a>
+                        <a href="#scroll-tab-2" class="mdl-layout__tab">Configure</a>
+                        <a href="#scroll-tab-3" class="mdl-layout__tab">Export</a>
+                      </div>
+                    </header>
+                    <main class="mdl-layout__content">
+                      <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+                        <div class="page-content"><div id="blocklyDiv" style="height: 85vh; width: 100%;"></div></div>
+                      </section>
+                      <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+                        <div class="page-content"><!-- Your content goes here --></div>
+                      </section>
+                      <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+                        <div class="page-content"><!-- Your content goes here --></div>
+                      </section>
+                    </main>
+                  </div>
         <input type="text" id="hostip" placeholder="brick ip"><br>
         <input type="text" id="pname" placeholder="program name"><br>
         <input type="button" id="btnEd" value="Deploy Code" onclick="deployCodeToBot()" />
         <progress id="progressBar" value="0" max="100"></progress>
-        <div id="blocklyDiv" style="height: 650px; width: 1280px;"></div>
         <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
             <block type="tank_drive">
               <field name="left_output">OUTPUT_B</field>

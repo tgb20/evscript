@@ -1,5 +1,5 @@
 {
-  "name": "evscript",
+  "name": "evScript",
   "version": "1.0.0",
   "description": "A Block Based Client for EV3",
   "main": "main.js",
