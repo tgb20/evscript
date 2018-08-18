@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, dialog} = require('electron')
 
 var node_ssh = require('node-ssh')
 
@@ -40,6 +40,9 @@ function deployCodeToBot(){
         ssh.exec("echo " + "'" + tankDriveImports + compiledCode + "' > " + fileName)
         ssh.exec("chmod +x " + fileName)
         stopLoading()
+    }, function(error) {
+        stopLoading()
+        alert("Failed to Connect to Robot, " + error)
     })
 }
 
