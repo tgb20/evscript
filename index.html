@@ -41,14 +41,14 @@
                         <div class="page-content"><div id="blocklyDiv" style="height: 85vh; width: 100%;"></div></div>
                       </section>
                       <section class="mdl-layout__tab-panel" id="scroll-tab-2">
-                        <div class="page-content">
-                            <form action="#">
+                        <div class="page-content" style="width:100%">
+                            <form action="#" style="padding-left: 5%">
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <input class="mdl-textfield__input" type="text" id="hostip">
                                     <label class="mdl-textfield__label" for="hostip">Brick IP Address</label>
                                 </div>
                             </form>
-                            <form action="#">
+                            <form action="#" style="padding-left: 5%">
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <input class="mdl-textfield__input" type="text" id="pname">
                                     <label class="mdl-textfield__label" for="pname">Program Name</label>
@@ -58,32 +58,75 @@
                       </section>
                     </main>
                   </div>
-        <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
-            <block type="tank_drive">
-              <field name="left_output">OUTPUT_B</field>
-              <field name="right_output">OUTPUT_C</field>
-            </block>
-            <block type="drive_for_seconds">
-              <value name="left_percent">
-                <block type="math_number">
-                  <field name="NUM">50</field>
-                </block>
-              </value>
-              <value name="right_percent">
-                <block type="math_number">
-                  <field name="NUM">50</field>
-                </block>
-              </value>
-              <value name="seconds">
-                <block type="math_number">
-                  <field name="NUM">1</field>
-                </block>
-              </value>
-            </block>
-            <block type="math_number">
-              <field name="NUM">0</field>
-            </block>
-        </xml>
+                  <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
+                    <block type="start"></block>
+                    <block type="move_tank_on_for">
+                      <field name="left_port">OUTPUT_B</field>
+                      <field name="right_port">OUTPUT_C</field>
+                      <field name="type">rotations</field>
+                      <value name="left_motor_speed">
+                        <block type="math_number">
+                          <field name="NUM">50</field>
+                        </block>
+                      </value>
+                      <value name="right_motor_speed">
+                        <block type="math_number">
+                          <field name="NUM">50</field>
+                        </block>
+                      </value>
+                      <value name="type_value">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                    </block>
+                    <block type="move_tank_on">
+                      <field name="left_port">OUTPUT_B</field>
+                      <field name="right_port">OUTPUT_C</field>
+                      <value name="left_motor_speed">
+                        <block type="math_number">
+                          <field name="NUM">50</field>
+                        </block>
+                      </value>
+                      <value name="right_motor_speed">
+                        <block type="math_number">
+                          <field name="NUM">50</field>
+                        </block>
+                      </value>
+                    </block>
+                    <block type="move_tank_off">
+                      <field name="left_port">OUTPUT_B</field>
+                      <field name="right_port">OUTPUT_C</field>
+                    </block>
+                    <block type="motor_on_for">
+                      <field name="port">OUTPUT_A</field>
+                      <field name="type">rotations</field>
+                      <value name="motor_speed">
+                        <block type="math_number">
+                          <field name="NUM">50</field>
+                        </block>
+                      </value>
+                      <value name="motor_type">
+                        <block type="math_number">
+                          <field name="NUM">1</field>
+                        </block>
+                      </value>
+                    </block>
+                    <block type="motor_on">
+                      <field name="port">OUTPUT_A</field>
+                      <value name="motor_speed">
+                        <block type="math_number">
+                          <field name="NUM">50</field>
+                        </block>
+                      </value>
+                    </block>
+                    <block type="motor_off">
+                      <field name="port">OUTPUT_A</field>
+                    </block>
+                    <block type="math_number">
+                      <field name="NUM">0</field>
+                    </block>
+                  </xml>
     </body>
     <script>
 
