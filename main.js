@@ -11,7 +11,7 @@ function createWindow(){
 
     win.loadFile('index.html');
 
-    //win.webContents.openDevTools()
+    win.webContents.openDevTools()
 
     win.on('closed', () => {
         win = null
@@ -26,6 +26,7 @@ function deployCodeToBot(){
     var imports = "#!/usr/bin/env python3\n"
     imports += "from ev3dev2.motor import OUTPUT_A, OUTPUT_B, OUTPUT_C, OUTPUT_D, Motor, MoveTank\n"
     imports += "from threading import Thread\n"
+    imports += "import random\n"
 
     var codeFromBlockly = Blockly.Python.workspaceToCode(workspace)
 

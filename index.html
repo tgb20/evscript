@@ -59,74 +59,78 @@
                     </main>
                   </div>
                   <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
-                    <block type="start"></block>
-                    <block type="move_tank_on_for">
-                      <field name="left_port">OUTPUT_B</field>
-                      <field name="right_port">OUTPUT_C</field>
-                      <field name="type">rotations</field>
-                      <value name="left_motor_speed">
-                        <block type="math_number">
-                          <field name="NUM">50</field>
-                        </block>
-                      </value>
-                      <value name="right_motor_speed">
-                        <block type="math_number">
-                          <field name="NUM">50</field>
-                        </block>
-                      </value>
-                      <value name="type_value">
-                        <block type="math_number">
-                          <field name="NUM">1</field>
-                        </block>
-                      </value>
-                    </block>
-                    <block type="move_tank_on">
-                      <field name="left_port">OUTPUT_B</field>
-                      <field name="right_port">OUTPUT_C</field>
-                      <value name="left_motor_speed">
-                        <block type="math_number">
-                          <field name="NUM">50</field>
-                        </block>
-                      </value>
-                      <value name="right_motor_speed">
-                        <block type="math_number">
-                          <field name="NUM">50</field>
-                        </block>
-                      </value>
-                    </block>
-                    <block type="move_tank_off">
-                      <field name="left_port">OUTPUT_B</field>
-                      <field name="right_port">OUTPUT_C</field>
-                    </block>
-                    <block type="motor_on_for">
-                      <field name="port">OUTPUT_A</field>
-                      <field name="type">rotations</field>
-                      <value name="motor_speed">
-                        <block type="math_number">
-                          <field name="NUM">50</field>
-                        </block>
-                      </value>
-                      <value name="motor_type">
-                        <block type="math_number">
-                          <field name="NUM">1</field>
-                        </block>
-                      </value>
-                    </block>
-                    <block type="motor_on">
-                      <field name="port">OUTPUT_A</field>
-                      <value name="motor_speed">
-                        <block type="math_number">
-                          <field name="NUM">50</field>
-                        </block>
-                      </value>
-                    </block>
-                    <block type="motor_off">
-                      <field name="port">OUTPUT_A</field>
-                    </block>
-                    <block type="math_number">
-                      <field name="NUM">0</field>
-                    </block>
+                    <category name="Logic">
+                      <block type="start"></block>
+                      <block type="controls_if"></block>
+                      <block type="logic_compare">
+                        <field name="OP">EQ</field>
+                      </block>
+                      <block type="logic_operation">
+                        <field name="OP">AND</field>
+                      </block>
+                      <block type="controls_repeat_ext">
+                        <value name="TIMES">
+                          <shadow type="math_number">
+                            <field name="NUM">10</field>
+                          </shadow>
+                        </value>
+                      </block>
+                      <block type="controls_whileUntil">
+                        <field name="MODE">WHILE</field>
+                      </block>
+                      <block type="logic_boolean">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </category>
+                    <category name="Motors">
+                      <block type="move_tank_on_for">
+                        <field name="left_port">OUTPUT_A</field>
+                        <field name="right_port">OUTPUT_A</field>
+                        <field name="type">rotations</field>
+                      </block>
+                      <block type="move_tank_on">
+                        <field name="left_port">OUTPUT_A</field>
+                        <field name="right_port">OUTPUT_A</field>
+                      </block>
+                      <block type="move_tank_off">
+                        <field name="left_port">OUTPUT_A</field>
+                        <field name="right_port">OUTPUT_A</field>
+                      </block>
+                      <block type="motor_on_for">
+                        <field name="port">OUTPUT_A</field>
+                        <field name="type">rotations</field>
+                      </block>
+                      <block type="motor_on">
+                        <field name="port">OUTPUT_A</field>
+                      </block>
+                      <block type="motor_off">
+                        <field name="port">OUTPUT_A</field>
+                      </block>
+                    </category>
+                    <category name="Math">
+                      <block type="math_number">
+                        <field name="NUM">0</field>
+                      </block>
+                      <block type="math_random_int">
+                        <value name="FROM">
+                          <shadow type="math_number">
+                            <field name="NUM">1</field>
+                          </shadow>
+                        </value>
+                        <value name="TO">
+                          <shadow type="math_number">
+                            <field name="NUM">100</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </category>
+                    <category name="Text">
+                      <block type="text">
+                        <field name="TEXT"></field>
+                      </block>
+                    </category>
                   </xml>
+                  
     </body>
     <script>
 
