@@ -104,3 +104,10 @@ Blockly.Python['move_tank_on_for'] = function(block) {
     code += 'm' + dropdown_port + '.stop()\n';
     return code;
   };
+
+  Blockly.Python['print'] = function(block) {
+    var value_toprint = Blockly.Python.valueToCode(block, 'TOPRINT', Blockly.Python.ORDER_ATOMIC);
+    
+    var code = 'print(' + value_toprint + ')\n';
+    return code;
+  };

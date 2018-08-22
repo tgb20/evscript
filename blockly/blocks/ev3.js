@@ -415,3 +415,24 @@ goog.require('Blockly.Blocks');
       });
     }
   };
+
+  Blockly.Blocks['print'] = {
+    init: function() {
+      this.jsonInit({
+        "type": "print",
+        "message0": "print %1",
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "TOPRINT",
+            "check": "String"
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+      });
+    }
+  };
